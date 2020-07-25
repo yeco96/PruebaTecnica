@@ -1,0 +1,5 @@
+D:\Users\ms4742cp\source\repos\PruebaTecnica\PruebaTecnica\bin\PruebaTecnica.dll.config
+D:\Users\ms4742cp\source\repos\PruebaTecnica\PruebaTecnica\bin\PruebaTecnica.dll
+D:\Users\ms4742cp\source\repos\PruebaTecnica\PruebaTecnica\bin\PruebaTecnica.pdb
+D:\Users\ms4742cp\source\repos\PruebaTecnica\PruebaTecnica\obj\Debug\PruebaTecnica.dll
+D:\Users\ms4742cp\source\repos\PruebaTecnica\PruebaTecnica\obj\Debug\PruebaTecnica.pdb
