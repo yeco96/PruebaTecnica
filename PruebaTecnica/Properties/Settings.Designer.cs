@@ -28,9 +28,9 @@ namespace PruebaTecnica.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=PruebaTecnica;Persist Security Info=True;Us" +
             "er ID=sa;Password=123")]
-        public string ConnectionStrings {
+        public string Conexion {
             get {
-                return ((string)(this["ConnectionStrings"]));
+                return ((string)(this["Conexion"]));
             }
         }
     }

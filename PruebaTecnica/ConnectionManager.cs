@@ -9,10 +9,57 @@ namespace PruebaTecnica
 {
         public class ConnectionManager 
         {
-            public IDbConnection GetConnection(string keyName)
+
+        private string strconexion = Properties.Settings.Default.Conexion;
+        private SqlConnection objconexion;
+
+        public IDbConnection GetConnection()
+        {
+                return new SqlConnection(strconexion);
+        }
+
+        public ConnectionManager()
+        {
+            try
             {
-                return new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[string.Format("{0}", keyName)].ConnectionString);
+                objconexion = new SqlConnection(strconexion);
+                ABRIRCONEXION();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CERRARCONEXION();
             }
         }
+
+
+        private void ABRIRCONEXION()
+        {
+            if (objconexion.State == System.Data.ConnectionState.Closed)
+            {
+                objconexion.Open();
+            }
+                
+        }
+
+        private void CERRARCONEXION()
+        {
+            if (objconexion.State == System.Data.ConnectionState.Open)
+            {
+                objconexion.Close();
+            }
+                
+        }
+
+    }
+
+
     }
 

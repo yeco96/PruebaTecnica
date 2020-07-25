@@ -15,22 +15,24 @@ namespace PruebaTecnica
     public class Articulos : IArticulos
     {
         
-        public void ObtenerArticulos()
+        public List<Model.Articulo> ObtenerArticulos()
         {
             ConnectionManager ConnectionManagerInstance = new ConnectionManager();
-            using (IDbConnection connection = ConnectionManagerInstance.GetConnection("Data Source=localhost;Initial Catalog=PruebaTecnica;Persist Security Info=True;User ID=sa;Password=123"))
+            using (IDbConnection connection = ConnectionManagerInstance.GetConnection())
             {
                 var resultado = connection.Query<Model.Articulo,
                                          Model.Marca,
                                          Model.Articulo>(
                      "usp_ConsultaArticulos",
-                     (a, b) =>
+                     (articulo, marca) =>
                      {
-                         a.Marca = (Model.Marca)b;
-                         return a;
+                         articulo.Marca = (Model.Marca)marca;
+                         return articulo;
                      },
                      splitOn: "IdArticulo,IdMarca",
                      commandType: CommandType.StoredProcedure);
+
+                return resultado.Cast<Model.Articulo>().ToList();
 
             }
         }

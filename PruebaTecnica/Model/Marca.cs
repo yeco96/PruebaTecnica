@@ -8,6 +8,6 @@ namespace PruebaTecnica.Model
     public class Marca
     { 
         public int IdMarca { get; set; }
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
     }
 }
